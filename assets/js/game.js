@@ -1,32 +1,29 @@
 // Game States
-// "WIN" - Player has defeated all enemy robots
+// "WIN" - Player robot has defeated all enemy robots
 //    * Fight all enemy robots
 //    * Defeat each enemy robot
 // "LOSE" - Player robot's health is zero or less
-
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function(enemyName) {
-  // fight funtion statements
   // Alert users that they are starting the round
-  window.alert("Welcome to Robot Gladiators!");
+  //window.alert("Welcome to Robot Gladiators!");
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
-  console.log(promptFight);
+  while(enemyHealth > 0) {
 
 // if player choses to fight, then fight
 if (promptFight === "fight" || promptFight === "FIGHT") {
   // remove enemy's health by subtracting the amount set in the playerAttack variable
   enemyHealth = enemyHealth - playerAttack;
+  //put new code under this
   console.log(
     playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
   );
@@ -61,14 +58,15 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   }
   // if no (false), ask question again by running fight () again
   else {
-    //fight();
-  }
-
- 
+    fight();
+  } 
 } else {
   window.alert("You need to pick a valid option. Try again!");
-}
-};
-for(var i = 0; i < enemyNames.length; i++)  {
-  fight(enemyNames[i]);
+}}}
+
+//fight function call
+for(var i = 0; i < enemyNames.length; i++) {
+  var pickedEnemyName = enemyNames [i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
 }
