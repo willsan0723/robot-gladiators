@@ -36,7 +36,15 @@ var fightOrSkip = function() {
       return true;
     }
   }
-  return false;
+
+  if (promptFight === "fight") {
+    return false;
+  }
+  else {
+    window.alert("You need to provide a valid answer! Please try again.");
+    return fightOrSkip();
+  }
+  
 }
 
 
